@@ -1,0 +1,30 @@
+{
+  "name": "reylo-sqlite-demo",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "packageManager": "bun@1.4.4",
+  "engines": { "bun": "1.4.4", "node": ">=24.22.1 <25" },
+  "scripts": {
+    "init": "bun scripts/init.ts",
+    "start": "bun src/server.ts",
+    "dev": "bun --watch src/server.ts",
+    "test": "bun test",
+    "typecheck": "node node_modules/typescript/bin/tsc --noEmit --runExternalCode",
+    "build": "bun scripts/build.ts",
+    "backup": "node scripts/replica.ts backup",
+    "replicate": "node scripts/replica.ts watch",
+    "restore": "node scripts/replica.ts restore",
+    "drill": "bun scripts/drill.ts"
+  },
+  "dependencies": {
+    "@platformatic/sqlite-js-stream": "0.1.4",
+    "reylo": "0.2.0"
+  },
+  "devDependencies": {
+    "@reylosql/sqlite": "0.2.0",
+    "@types/bun": "1.4.3",
+    "@types/node": "24.10.0",
+    "typescript": "7.1.0-beta"
+  }
+}

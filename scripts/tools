@@ -1,0 +1,14 @@
+#!/bin/sh
+set -eu
+project_dir=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)
+export MISE_DATA_DIR="$project_dir/.tools/mise"
+export MISE_CACHE_DIR="$project_dir/.tools/cache"
+export MISE_STATE_DIR="$project_dir/.tools/state"
+export BUN_INSTALL_CACHE_DIR="$project_dir/.tools/bun-cache"
+export PATH="$MISE_DATA_DIR/installs/bun/1.4.4/bin:$MISE_DATA_DIR/installs/node/24.22.1/bin:$PATH"
+if [ ! -x "$MISE_DATA_DIR/installs/bun/1.4.4/bin/bun" ] || [ ! -x "$MISE_DATA_DIR/installs/node/24.22.1/bin/node" ]; then
+  echo 'Run sh scripts/bootstrap.sh to install the project runtimes.' >&2
+  exit 1
+fi
+cd "$project_dir"
+exec "$@"

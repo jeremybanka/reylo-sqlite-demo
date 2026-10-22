@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "preserve",
+    "moduleResolution": "bundler",
+    "lib": ["ESNext", "DOM", "DOM.Iterable"],
+    "types": ["bun", "node"],
+    "strict": true,
+    "noEmit": true,
+    "skipLibCheck": true,
+    "allowImportingTsExtensions": true,
+    "noUncheckedIndexedAccess": true
+  },
+  "contentMappers": [
+    { "package": "reylo", "extensions": [".sql", ".reylo.yaml", ".reylo.yml"] }
+  ],
+  "include": ["src/**/*.ts", "scripts/**/*.ts", "test/**/*.ts"],
+  "exclude": ["node_modules", ".tools", "dist", "artifacts"]
+}

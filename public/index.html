@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#213f37">
+  <title>Fieldnotes — a place for the next thing</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <a class="brand" href="/" aria-label="Fieldnotes home"><span class="brand-icon" aria-hidden="true">f.</span>fieldnotes<span class="edition">LOCAL EDITION / 001</span></a>
+      <span class="connection" id="connection" role="status"><i></i>Connecting</span>
+    </header>
+    <main>
+      <section class="intro" aria-labelledby="heading">
+        <div><div class="eyebrow"><span></span>A LITTLE ROOM TO MAKE THINGS</div><h1 id="heading">Small ideas.<br><em>Lasting progress.</em></h1><p>Your thoughts, tasks, and next little steps.<br>A quiet board that remembers where you left off.</p></div>
+        <div class="intro-note" aria-hidden="true"><span class="note-star">✳</span><span>Good things<br>take a few<br>small steps.</span><div class="note-line"></div><small>ONE THING AT A TIME</small></div>
+      </section>
+      <section class="workspace" aria-label="Task board">
+        <div class="toolbar"><div class="board-label">The working board <span id="total">0 notes</span></div><div class="tools"><label class="search"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="Find a note…" aria-label="Search notes"></label><button id="new-task" class="primary"><span aria-hidden="true">＋</span> New note</button></div></div>
+        <p id="error" class="error" role="alert" hidden></p>
+        <div id="board" class="board" aria-busy="true">
+          <section class="column" data-status="planned"><div class="column-heading"><h2><i></i>On the horizon <span id="count-planned">0</span></h2><button class="add-column" data-add="planned" aria-label="Add a planned note">＋</button></div><p class="column-description">A seed of something good.</p><div class="cards" id="planned"></div></section>
+          <section class="column" data-status="active"><div class="column-heading"><h2><i></i>In the making <span id="count-active">0</span></h2><button class="add-column" data-add="active" aria-label="Add an active note">＋</button></div><p class="column-description">A little further, every day.</p><div class="cards" id="active"></div></section>
+          <section class="column" data-status="done"><div class="column-heading"><h2><i></i>Made it happen <span id="count-done">0</span></h2><button class="add-column" data-add="done" aria-label="Add a completed note">＋</button></div><p class="column-description">Pause. Look what you did.</p><div class="cards" id="done"></div></section>
+        </div>
+      </section>
+      <footer><span><span class="tiny-mark" aria-hidden="true">↳</span> Kept locally. Ready when you are.</span><span>BUILT TO REMEMBER <span class="footer-dot">·</span> REYLO / SQLITE</span></footer>
+    </main>
+  </div>
+  <dialog id="editor" aria-labelledby="editor-title">
+    <form id="task-form">
+      <div class="dialog-top"><div><div class="eyebrow">MAKE A LITTLE SPACE</div><h2 id="editor-title">A new note</h2></div><button type="button" id="close-editor" class="icon-button" aria-label="Close editor">×</button></div>
+      <label>Title<input id="title" name="title" maxlength="120" required placeholder="What’s on your mind?"></label>
+      <label>Notes <span class="optional">/ optional</span><textarea id="body" name="body" rows="5" maxlength="4000" placeholder="A few details, a starting point, a reminder…"></textarea></label>
+      <label>Where it belongs<select id="status" name="status"><option value="planned">On the horizon</option><option value="active">In the making</option><option value="done">Made it happen</option></select></label>
+      <p id="form-error" class="error" role="alert" hidden></p>
+      <div class="dialog-actions"><button type="button" id="delete-task" class="delete" hidden>Delete note</button><button type="submit" id="save-task" class="primary">Save note <span aria-hidden="true">↗</span></button></div>
+    </form>
+  </dialog>
+  <div id="toast" class="toast" role="status" hidden></div>
+</body>
+</html>

@@ -1,0 +1,78 @@
+{
+  "bun": "1.4.4",
+  "persistenceAcrossProcessRestart": true,
+  "snapshotAndIncrementalRestore": {
+    "equal": true,
+    "rows": 2,
+    "schemaEqual": true,
+    "integrity": "ok",
+    "runtime": "v24.22.1"
+  },
+  "snapshotTXID": "1",
+  "incrementalTXID": "2",
+  "rollbackExcluded": true,
+  "existingRestoreTargetRefused": true,
+  "checkpointAndRestartRestore": {
+    "equal": true,
+    "rows": 3,
+    "schemaEqual": true,
+    "integrity": "ok",
+    "runtime": "v24.22.1"
+  },
+  "concurrentReplicationRefused": true,
+  "continuousReplicationRestore": {
+    "equal": true,
+    "rows": 4,
+    "schemaEqual": true,
+    "integrity": "ok",
+    "runtime": "v24.22.1"
+  },
+  "finalTXID": "4",
+  "invalidDestination": {
+    "exit": 1,
+    "healthy": false
+  },
+  "ltxFiles": [
+    "ltx/9/0000000000000001-0000000000000001.ltx",
+    "ltx/9/0000000000000001-0000000000000003.ltx",
+    "ltx/0/0000000000000002-0000000000000002.ltx",
+    "ltx/0/0000000000000003-0000000000000003.ltx",
+    "ltx/0/0000000000000001-0000000000000001.ltx",
+    "ltx/0/0000000000000004-0000000000000004.ltx"
+  ],
+  "passed": true,
+  "observedDate": "2026-10-22",
+  "toolVersions": {
+    "bun": "1.4.4",
+    "node": "24.22.1",
+    "typescript": "7.1.0-beta",
+    "reylo": "0.2.0",
+    "sqliteEngine": "0.2.0",
+    "sqliteJsStream": "0.1.4"
+  },
+  "automatedTests": {
+    "passed": 5,
+    "failed": 0,
+    "assertions": 29
+  },
+  "typecheck": "passed",
+  "build": "passed",
+  "compiledServerSmoke": "passed",
+  "browser": {
+    "surface": "dedicated in-app browser",
+    "crud": [
+      "create",
+      "read",
+      "update",
+      "move"
+    ],
+    "search": true,
+    "reloadPersistence": true,
+    "errors": 0,
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "documentWidth": 390
+    }
+  }
+}
